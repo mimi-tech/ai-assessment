@@ -1,0 +1,34 @@
+name: ai_assessment
+description: AI-assisted Flutter application demonstrating accelerated feature development, code generation, and productivity improvements using AI.
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ^3.10.0
+  flutter: ^3.38.1
+
+dependencies:
+  bloc: ^9.2.0
+  equatable: ^2.0.7
+  firebase_analytics: ^12.0.2
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.1.1
+  flutter_localizations:
+    sdk: flutter
+  go_router: ^16.2.2
+  intl: ^0.20.2
+
+
+dev_dependencies:
+  bloc_lint: ">=0.3.3 <0.3.6"
+  bloc_test: ^10.0.0
+  bloc_tools: ^0.1.0-dev.20
+  flutter_test:
+    sdk: flutter
+  mocktail: ^1.0.4
+  very_good_analysis: ^10.1.0
+
+flutter:
+  generate: true
+  uses-material-design: true

@@ -1,0 +1,38 @@
+{
+    "@@locale": "ko",
+    "counterAppBarTitle": "카운터",
+    "@counterAppBarTitle": {
+        "description": "카운터 페이지의 앱 바에 표시되는 텍스트"
+    },
+    "loginLogo": "앱 로고",
+    "loginEmailLabel": "이메일",
+    "loginEmailHint": "이메일을 입력하세요",
+    "loginPasswordLabel": "비밀번호",
+    "loginPasswordHint": "비밀번호를 입력하세요",
+    "loginForgotPassword": "비밀번호를 잊으셨나요?",
+    "loginSignIn": "로그인",
+    "loginSignUpPrompt": "계정이 없으신가요? 회원가입",
+    "feedbackTitle": "피드백",
+    "feedbackHeadingPrincipal": "여러분의 피드백을 소중히 생각합니다",
+    "feedbackSubheading": "여러분의 의견은 저희가 서비스를 개선하고\n모두에게 더 나은 경험을 제공하는 데 도움이 됩니다.",
+    "feedbackStarCount": "{count}개의 별이 선택되었습니다",
+    "@feedbackStarCount": {
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "feedbackRatingTerrible": "최악이에요",
+    "feedbackRatingBad": "별로예요",
+    "feedbackRatingOkay": "보통이에요",
+    "feedbackRatingGood": "좋아요",
+    "feedbackRatingExcellent": "최고예요",
+    "feedbackRatingPlaceholder": "경험이 어떠셨나요?",
+    "feedbackCommentLabel": "코멘트",
+    "feedbackCommentHint": "경험에 대해 더 자세히 알려주세요\n(선택 사항)",
+    "feedbackSubmit": "피드백 제출",
+    "feedbackSuccessTitle": "감사합니다!",
+    "feedbackSuccessMessage": "피드백이 성공적으로 제출되었습니다.",
+    "commonDone": "완료"
+}

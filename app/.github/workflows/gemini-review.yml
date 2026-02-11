@@ -1,0 +1,36 @@
+name: Gemini AI Code Reviewer
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  gemini-code-review:
+    # Only runs if someone comments "/gemini-review" on a Pull Request
+    if: github.event.issue.pull_request && contains(github.event.comment.body, '/gemini-review')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Gemini AI Code Review
+        uses: truongnh1992/gemini-ai-code-reviewer@main
+        env:
+          # Stricter review: focus on bugs, security, performance, maintainability (aligns with Flutter/L2U standards)
+          REVIEW_MODE: "strict"
+          # Include test and doc files in review
+          REVIEW_TEST_FILES: "true"
+          REVIEW_DOCS: "true"
+        with:
+          # Action expects these exact input names (uppercase)
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: "gemini-2.0-flash"
+          # Non-empty EXCLUDE overrides default (*.md, *.txt, etc). Only exclude lock files so .md can be reviewed.
+          EXCLUDE: "*.lock,package-lock.json,yarn.lock,pubspec.lock,.packages"

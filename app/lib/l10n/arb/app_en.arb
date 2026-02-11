@@ -1,0 +1,38 @@
+{
+    "@@locale": "en",
+    "counterAppBarTitle": "Counter",
+    "@counterAppBarTitle": {
+        "description": "Text shown in the AppBar of the Counter Page"
+    },
+    "loginLogo": "App Logo",
+    "loginEmailLabel": "Email",
+    "loginEmailHint": "Enter your email",
+    "loginPasswordLabel": "Password",
+    "loginPasswordHint": "Enter your password",
+    "loginForgotPassword": "Forgot Password?",
+    "loginSignIn": "Sign In",
+    "loginSignUpPrompt": "Don't have an account? Sign Up",
+    "feedbackTitle": "Feedback",
+    "feedbackHeadingPrincipal": "We value your feedback",
+    "feedbackSubheading": "Your input helps us improve and provide\na better experience for everyone.",
+    "feedbackStarCount": "{count, plural, =1{1 star selected} other{{count} stars selected}}",
+    "@feedbackStarCount": {
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "feedbackRatingTerrible": "Terrible",
+    "feedbackRatingBad": "Bad",
+    "feedbackRatingOkay": "Okay",
+    "feedbackRatingGood": "Good",
+    "feedbackRatingExcellent": "Excellent",
+    "feedbackRatingPlaceholder": "How was your experience?",
+    "feedbackCommentLabel": "Comment",
+    "feedbackCommentHint": "Tell us more about your experience\n(optional)",
+    "feedbackSubmit": "Submit Feedback",
+    "feedbackSuccessTitle": "Thank you!",
+    "feedbackSuccessMessage": "Your feedback has been submitted successfully.",
+    "commonDone": "Done"
+}
