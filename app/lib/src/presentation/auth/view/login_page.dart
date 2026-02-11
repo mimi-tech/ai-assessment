@@ -22,14 +22,37 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-class _LoginView extends StatelessWidget {
+class _LoginView extends StatefulWidget {
   const _LoginView();
 
+  @override
+  State<_LoginView> createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<_LoginView> {
   static const _primaryText = Color(0xFF121417);
   static const _secondaryText = Color(0xFF61758A);
   static const _buttonBlue = Color(0xFF268CF5);
   static const _borderColor = Color(0xFFDBE0E5);
   static const _fontFamily = 'Plus Jakarta Sans';
+
+  late final TextEditingController _emailController;
+  late final TextEditingController _passwordController;
+
+  @override
+  void initState() {
+    super.initState();
+    final state = context.read<LoginBloc>().state;
+    _emailController = TextEditingController(text: state.email);
+    _passwordController = TextEditingController(text: state.password);
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -132,6 +155,7 @@ class _LoginView extends StatelessWidget {
               border: Border.all(color: _borderColor),
             ),
             child: TextField(
+              controller: _emailController,
               onChanged: (value) {
                 context.read<LoginBloc>().add(LoginEmailChanged(email: value));
               },
@@ -206,6 +230,7 @@ class _LoginView extends StatelessWidget {
                       ),
                     ),
                     child: TextField(
+                      controller: _passwordController,
                       onChanged: (value) {
                         context.read<LoginBloc>().add(
                           LoginPasswordChanged(password: value),

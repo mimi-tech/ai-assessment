@@ -33,9 +33,9 @@ void main() {
         LoginPage(loginBloc: loginBloc),
       );
 
-      await tester.enterText(find.byType(TextField).first, 'test@example.com');
+      await tester.enterText(find.byType(TextField).first, 'new@example.com');
 
-      verify(() => loginBloc.add(const LoginEmailChanged(email: 'test@example.com'))).called(1);
+      verify(() => loginBloc.add(const LoginEmailChanged(email: 'new@example.com'))).called(1);
     });
 
     testWidgets('adds LoginPasswordChanged when password is entered', (tester) async {
@@ -43,9 +43,9 @@ void main() {
         LoginPage(loginBloc: loginBloc),
       );
 
-      await tester.enterText(find.byType(TextField).last, 'password123');
+      await tester.enterText(find.byType(TextField).last, 'newpassword123');
 
-      verify(() => loginBloc.add(const LoginPasswordChanged(password: 'password123'))).called(1);
+      verify(() => loginBloc.add(const LoginPasswordChanged(password: 'newpassword123'))).called(1);
     });
 
     testWidgets('adds LoginSubmitted when sign in button is tapped', (tester) async {
