@@ -1,0 +1,13 @@
+app_ui/.DS_Store
+app_ui/lib/.DS_Store
+/app_ui/build
+app/.github/cspell.json
+app/.github/dependabot.yaml
+/app/.idea
+app/.metadata
+app/.vscode/extensions.json
+.idea
+/app/pubspec.lock
+
+app/ios/Podfile.lock
+app_ui/.flutter-plugins-dependencies
