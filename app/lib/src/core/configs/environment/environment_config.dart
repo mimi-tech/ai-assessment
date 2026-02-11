@@ -16,8 +16,9 @@ abstract class EnvironmentConfig {
     try {
       configString = await rootBundle.loadString('config/$env.json');
     } on Exception catch (_) {
-      configString =
-          await rootBundle.loadString('config/${Environment.development}.json');
+      configString = await rootBundle.loadString(
+        'config/${Environment.development}.json',
+      );
     }
 
     config = EnvironmentConfigReader.fromJson(

@@ -13,14 +13,11 @@ final GoRouter router = GoRouter(
   navigatorKey: rootNavigatorKey,
   initialLocation: Routes.loginRoute,
   routes: [
-
     GoRoute(
       name: Routes.loginRoute,
       path: Routes.loginRoute,
       pageBuilder: (context, state) {
-        return const NoTransitionPage(
-          child: LoginPage(),
-        );
+        return const NoTransitionPage(child: LoginPage());
       },
     ),
 
@@ -28,11 +25,8 @@ final GoRouter router = GoRouter(
       name: Routes.feedbackRoute,
       path: Routes.feedbackRoute,
       pageBuilder: (context, state) {
-        return const NoTransitionPage(
-          child: FeedbackRatingScreen(),
-        );
+        return const NoTransitionPage(child: FeedbackRatingScreen());
       },
     ),
-
   ],
 );

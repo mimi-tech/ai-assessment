@@ -1,3 +1,5 @@
+// ignore_for_file: one_member_abstracts
+
 import 'package:ai_assessment/src/domain/auth/login_response.dart';
 
 abstract class AuthService {

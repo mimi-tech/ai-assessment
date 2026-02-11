@@ -7,8 +7,8 @@ part 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc({required AuthRepository authRepository})
-      : _authRepository = authRepository,
-        super(const LoginState()) {
+    : _authRepository = authRepository,
+      super(const LoginState()) {
     on<LoginEmailChanged>(_onEmailChanged);
     on<LoginPasswordChanged>(_onPasswordChanged);
     on<LoginPasswordVisibilityToggled>(_onPasswordVisibilityToggled);
@@ -17,10 +17,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   final AuthRepository _authRepository;
 
-  void _onEmailChanged(
-    LoginEmailChanged event,
-    Emitter<LoginState> emit,
-  ) {
+  void _onEmailChanged(LoginEmailChanged event, Emitter<LoginState> emit) {
     emit(state.copyWith(email: event.email, errorMessage: ''));
   }
 

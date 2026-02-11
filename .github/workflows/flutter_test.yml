@@ -34,12 +34,12 @@ jobs:
 
       # 4. (Optional) Check for formatting issues
       - name: Check formatting
-        run: flutter format --set-exit-if-changed .
+        run: dart format --output=none --set-exit-if-changed lib
 
-      # 5. (Optional) Static analysis (Linter)
+      # 5. Static analysis (Linter)
       - name: Analyze code
-        run: flutter analyze
+        run: flutter analyze --fatal-infos --fatal-warnings
 
       # 6. Run the actual tests
       - name: Run tests
-        run: flutter test
+        run: flutter test --no-pub

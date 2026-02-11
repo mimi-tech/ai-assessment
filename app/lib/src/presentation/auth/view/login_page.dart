@@ -14,17 +14,11 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = loginBloc ??
-        LoginBloc(
-          authRepository: IAuthRepository(
-            authService: IAuthService(),
-          ),
-        );
+    final bloc =
+        loginBloc ??
+        LoginBloc(authRepository: IAuthRepository(authService: IAuthService()));
 
-    return BlocProvider.value(
-      value: bloc,
-      child: const _LoginView(),
-    );
+    return BlocProvider.value(value: bloc, child: const _LoginView());
   }
 }
 
@@ -44,7 +38,7 @@ class _LoginView extends StatelessWidget {
       body: BlocConsumer<LoginBloc, LoginState>(
         listener: (context, state) {
           if (state.loginSuccess) {
-           context.pushNamed(Routes.feedbackRoute);
+            context.pushNamed(Routes.feedbackRoute);
           }
         },
         builder: (context, state) {
@@ -108,7 +102,11 @@ class _LoginView extends StatelessWidget {
     );
   }
 
-  Widget _buildEmailField(BuildContext context, LoginState state, AppLocalizations l10n) {
+  Widget _buildEmailField(
+    BuildContext context,
+    LoginState state,
+    AppLocalizations l10n,
+  ) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       child: Column(
@@ -135,9 +133,7 @@ class _LoginView extends StatelessWidget {
             ),
             child: TextField(
               onChanged: (value) {
-                context
-                    .read<LoginBloc>()
-                    .add(LoginEmailChanged(email: value));
+                context.read<LoginBloc>().add(LoginEmailChanged(email: value));
               },
               keyboardType: TextInputType.emailAddress,
               style: const TextStyle(
@@ -166,7 +162,11 @@ class _LoginView extends StatelessWidget {
     );
   }
 
-  Widget _buildPasswordField(BuildContext context, LoginState state, AppLocalizations l10n) {
+  Widget _buildPasswordField(
+    BuildContext context,
+    LoginState state,
+    AppLocalizations l10n,
+  ) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       child: Column(
@@ -187,9 +187,7 @@ class _LoginView extends StatelessWidget {
           ),
           Container(
             height: 56,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-            ),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
             child: Row(
               children: [
                 // Text input area
@@ -209,9 +207,9 @@ class _LoginView extends StatelessWidget {
                     ),
                     child: TextField(
                       onChanged: (value) {
-                        context
-                            .read<LoginBloc>()
-                            .add(LoginPasswordChanged(password: value));
+                        context.read<LoginBloc>().add(
+                          LoginPasswordChanged(password: value),
+                        );
                       },
                       obscureText: state.obscurePassword,
                       style: const TextStyle(
@@ -230,8 +228,12 @@ class _LoginView extends StatelessWidget {
                           height: 1.5,
                           color: _secondaryText,
                         ),
-                        contentPadding:
-                            const EdgeInsets.fromLTRB(15, 15, 8, 15),
+                        contentPadding: const EdgeInsets.fromLTRB(
+                          15,
+                          15,
+                          8,
+                          15,
+                        ),
                         border: InputBorder.none,
                       ),
                     ),
@@ -240,9 +242,9 @@ class _LoginView extends StatelessWidget {
                 // Eye icon toggle
                 GestureDetector(
                   onTap: () {
-                    context
-                        .read<LoginBloc>()
-                        .add(const LoginPasswordVisibilityToggled());
+                    context.read<LoginBloc>().add(
+                      const LoginPasswordVisibilityToggled(),
+                    );
                   },
                   child: Container(
                     padding: const EdgeInsets.only(right: 15),
@@ -316,7 +318,11 @@ class _LoginView extends StatelessWidget {
     );
   }
 
-  Widget _buildSignInButton(BuildContext context, LoginState state, AppLocalizations l10n) {
+  Widget _buildSignInButton(
+    BuildContext context,
+    LoginState state,
+    AppLocalizations l10n,
+  ) {
     final isLoading = state.uiState == LoginUiState.loading;
 
     return Padding(
@@ -327,9 +333,7 @@ class _LoginView extends StatelessWidget {
           onPressed: isLoading
               ? null
               : () {
-                  context
-                      .read<LoginBloc>()
-                      .add(const LoginSubmitted());
+                  context.read<LoginBloc>().add(const LoginSubmitted());
                 },
           style: ElevatedButton.styleFrom(
             backgroundColor: _buttonBlue,

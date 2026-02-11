@@ -23,12 +23,7 @@ class LoginResponse extends Equatable {
   final String name;
 
   Map<String, dynamic> toJson() {
-    return {
-      'token': token,
-      'userId': userId,
-      'email': email,
-      'name': name,
-    };
+    return {'token': token, 'userId': userId, 'email': email, 'name': name};
   }
 
   @override
