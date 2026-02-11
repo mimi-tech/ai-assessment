@@ -11,6 +11,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./app
+
     steps:
       # 1. Check out the code from the repository
       - name: Checkout code
@@ -21,8 +25,8 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
-          # Optional: specify a version like '3.19.0'
           cache: true
+          pubspec-path: ./app/pubspec.yaml
 
       # 3. Get dependencies
       - name: Install dependencies
