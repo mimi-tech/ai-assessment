@@ -4,8 +4,8 @@ enum LoginUiState { initial, loading, loaded, error }
 
 class LoginState extends Equatable {
   const LoginState({
-    this.email = '',
-    this.password = '',
+    this.email = 'test@example.com',
+    this.password = 'password123',
     this.obscurePassword = true,
     this.uiState = LoginUiState.initial,
     this.errorMessage = '',
