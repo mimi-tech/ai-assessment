@@ -1,0 +1,41 @@
+name: Flutter CI
+
+# Trigger the workflow on push or pull request to the main branch
+on:
+  push:
+    branches: [ main, development ]
+  pull_request:
+    branches: [ main, development ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Set up the Flutter environment
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          # Optional: specify a version like '3.19.0'
+          cache: true
+
+      # 3. Get dependencies
+      - name: Install dependencies
+        run: flutter pub get
+
+      # 4. (Optional) Check for formatting issues
+      - name: Check formatting
+        run: flutter format --set-exit-if-changed .
+
+      # 5. (Optional) Static analysis (Linter)
+      - name: Analyze code
+        run: flutter analyze
+
+      # 6. Run the actual tests
+      - name: Run tests
+        run: flutter test
