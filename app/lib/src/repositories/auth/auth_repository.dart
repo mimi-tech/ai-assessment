@@ -10,7 +10,7 @@ abstract class AuthRepository {
 
 class IAuthRepository implements AuthRepository {
   IAuthRepository({required AuthService authService})
-      : _authService = authService;
+    : _authService = authService;
 
   final AuthService _authService;
 
@@ -18,6 +18,5 @@ class IAuthRepository implements AuthRepository {
   Future<LoginResponse> login({
     required String email,
     required String password,
-  }) =>
-      _authService.login(email: email, password: password);
+  }) => _authService.login(email: email, password: password);
 }

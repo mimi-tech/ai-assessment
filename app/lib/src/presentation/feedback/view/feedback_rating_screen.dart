@@ -13,10 +13,7 @@ class FeedbackRatingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = feedbackRatingBloc ?? FeedbackRatingBloc();
-    return BlocProvider.value(
-      value: bloc,
-      child: const _FeedbackRatingView(),
-    );
+    return BlocProvider.value(value: bloc, child: const _FeedbackRatingView());
   }
 }
 
@@ -58,8 +55,10 @@ class _FeedbackRatingView extends StatelessWidget {
               // Scrollable content
               Expanded(
                 child: SingleChildScrollView(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 24,
+                  ),
                   child: Column(
                     children: [
                       // Heading section
@@ -126,9 +125,9 @@ class _FeedbackRatingView extends StatelessWidget {
                         child: _StarRatingRow(
                           rating: state.rating,
                           onRatingChanged: (rating) {
-                            context
-                                .read<FeedbackRatingBloc>()
-                                .add(FeedbackRatingChanged(rating: rating));
+                            context.read<FeedbackRatingBloc>().add(
+                              FeedbackRatingChanged(rating: rating),
+                            );
                           },
                         ),
                       ),
@@ -139,9 +138,9 @@ class _FeedbackRatingView extends StatelessWidget {
                       _CommentField(
                         l10n: l10n,
                         onChanged: (comment) {
-                          context
-                              .read<FeedbackRatingBloc>()
-                              .add(FeedbackCommentChanged(comment: comment));
+                          context.read<FeedbackRatingBloc>().add(
+                            FeedbackCommentChanged(comment: comment),
+                          );
                         },
                       ),
                     ],
@@ -152,13 +151,14 @@ class _FeedbackRatingView extends StatelessWidget {
               // Bottom pinned button
               _SubmitButton(
                 l10n: l10n,
-                isEnabled: state.rating > 0 &&
+                isEnabled:
+                    state.rating > 0 &&
                     state.uiState != FeedbackUiState.submitting,
                 isLoading: state.uiState == FeedbackUiState.submitting,
                 onPressed: () {
-                  context
-                      .read<FeedbackRatingBloc>()
-                      .add(const FeedbackSubmitted());
+                  context.read<FeedbackRatingBloc>().add(
+                    const FeedbackSubmitted(),
+                  );
                 },
               ),
             ],
@@ -257,10 +257,7 @@ class _AnimatedEmoji extends StatelessWidget {
 // Star rating row
 // -------------------------------------------------------------------
 class _StarRatingRow extends StatelessWidget {
-  const _StarRatingRow({
-    required this.rating,
-    required this.onRatingChanged,
-  });
+  const _StarRatingRow({required this.rating, required this.onRatingChanged});
 
   final int rating;
   final ValueChanged<int> onRatingChanged;
@@ -301,10 +298,7 @@ class _StarRatingRow extends StatelessWidget {
 // Comment text field with label
 // -------------------------------------------------------------------
 class _CommentField extends StatelessWidget {
-  const _CommentField({
-    required this.l10n,
-    required this.onChanged,
-  });
+  const _CommentField({required this.l10n, required this.onChanged});
 
   final AppLocalizations l10n;
   final ValueChanged<String> onChanged;
@@ -392,11 +386,11 @@ class _SubmitButton extends StatelessWidget {
                 onPressed: isEnabled ? onPressed : null,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF2196F3),
-                  disabledBackgroundColor: const Color(0xFF2196F3)
-                      .withValues(alpha: 0.4),
+                  disabledBackgroundColor: const Color(
+                    0xFF2196F3,
+                  ).withValues(alpha: 0.4),
                   foregroundColor: Colors.white,
-                  disabledForegroundColor:
-                      Colors.white.withValues(alpha: 0.7),
+                  disabledForegroundColor: Colors.white.withValues(alpha: 0.7),
                   elevation: 0,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(28),

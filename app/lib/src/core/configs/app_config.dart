@@ -13,13 +13,8 @@ class AppConfig {
       overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom],
     );
     SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-      ),
+      const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
     );
-    await SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitUp],
-    );
-
+    await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   }
 }
