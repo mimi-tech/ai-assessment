@@ -72,6 +72,8 @@ A Product Requirements Document (`prd.md`) was written describing two core featu
 ### 2️⃣ Stitch → Figma (Design Refinement)
 The Stitch-generated screens were exported to **Figma** for visual validation and minor refinements. This served as the single source of truth for UI specifications.
 
+> 🎨 **[View the Figma Design](https://www.figma.com/design/KOQwMv6jASaf9wPFZm1Vkp/Untitled?node-id=0-1&p=f&m=dev)**
+
 ### 3️⃣ Figma → Antigravity (Code Generation)
 Using the **Figma MCP** and **Stitch MCP** servers configured in Antigravity:
 - Antigravity read the Figma designs directly via the MCP protocol
@@ -212,4 +214,4 @@ cd app && flutter test
 
 ---
 
-*Built with [Stitch AI](https://stitch.google.com) · [Antigravity](https://idx.google.com) · [Gemini AI](https://ai.google.dev) · [SonarCloud](https://sonarcloud.io)*
+*Built with [Stitch AI](https://stitch.google.com) · [Antigravity](https://idx.google.com) · [Gemini AI](https://ai.google.dev) · [SonarCloud](https://sonarcloud.io) · [Figma Design](https://www.figma.com/design/KOQwMv6jASaf9wPFZm1Vkp/Untitled?node-id=0-1&p=f&m=dev)*
